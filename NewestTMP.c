@@ -1,4 +1,5 @@
 
+
 #include <SPI.h>
 #include <Arduino.h>
 #include <Wire.h>
@@ -25,12 +26,12 @@ display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
 
 void loop(void)
 {
-  //serial monitor for debugging
+  //serial monitor for debugging 
   serialConnection.println(temp.readToJSON("infraredTemp"));
   serialConnection.println(lum.readToJSON("luminosity"));
   
-//triggers when tmp>70 and displays check mark on oled 
- if (temp.t > 70) {  
+//triggers when tmp>60 and displays check mark on oled 
+ if (temp.t > 60) {  
   display.clearDisplay();
  
   display.drawRect(14, 4, 15, 11, WHITE);
@@ -39,6 +40,12 @@ void loop(void)
  
   display.display();
  }
-// else{}
+ //else theres no check mark
+ else{
+  display.clearDisplay();
+ 
+  display.drawRect(14, 4, 15, 11, WHITE);
+  display.display();
+ }
   delay(200);
 }
