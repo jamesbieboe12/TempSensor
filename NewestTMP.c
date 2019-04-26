@@ -29,7 +29,7 @@ void loop(void)
   serialConnection.println(lum.readToJSON("luminosity"));
   
 //the if statement underneath triggers when the temperature reads above the value and displays on oled 
- if (temp.t > 50) {  
+ if (temp.t > 70) {  
  //this code draws a check mark
   display.clearDisplay();
  
