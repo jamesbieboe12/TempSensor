@@ -28,7 +28,7 @@ void loop(void)
   serialConnection.println(temp.readToJSON("infraredTemp"));
   serialConnection.println(lum.readToJSON("luminosity"));
   
-//the if statement underneath triggers when the temperature reads above the value and displays on oled 
+//the if statement underneath triggers when the temperature reads above the //value and displays on oled 
  if (temp.t > 70) {  
  //this code draws a check mark
   display.clearDisplay();
